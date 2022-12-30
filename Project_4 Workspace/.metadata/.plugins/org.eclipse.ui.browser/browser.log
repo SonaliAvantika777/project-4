@@ -1,0 +1,12 @@
+
+Dec 23, 2022 13:41:06.67 NEW SESSION
+Dec 23, 2022 13:41:06.76 [112388:94976:1223/134106.655:ERROR:device_event_log_impl.cc(215)] [13:41:06.655] USB: usb_service_win.cc:415 Could not read device interface GUIDs: The system cannot find the file specified. (0x2)
+Dec 23, 2022 13:41:06.76 [112388:94976:1223/134106.655:ERROR:device_event_log_impl.cc(215)] [13:41:06.656] USB: usb_device_handle_win.cc:1045 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Dec 23, 2022 13:41:06.76 [112388:94976:1223/134106.655:ERROR:device_event_log_impl.cc(215)] [13:41:06.656] USB: usb_device_handle_win.cc:1045 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Dec 23, 2022 13:42:04.28 [112388:112788:1223/134204.289:ERROR:util.cc(133)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+Dec 24, 2022 14:00:31.05 NEW SESSION
+Dec 24, 2022 14:00:31.06 [105268:114456:1224/140031.025:ERROR:device_event_log_impl.cc(215)] [14:00:31.024] USB: usb_service_win.cc:415 Could not read device interface GUIDs: The system cannot find the file specified. (0x2)
+Dec 24, 2022 14:00:31.06 [105268:114456:1224/140031.026:ERROR:device_event_log_impl.cc(215)] [14:00:31.026] USB: usb_device_handle_win.cc:1045 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Dec 24, 2022 14:00:31.06 [105268:114456:1224/140031.026:ERROR:device_event_log_impl.cc(215)] [14:00:31.026] USB: usb_device_handle_win.cc:1045 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Dec 24, 2022 14:01:10.09 [105268:114624:1224/140110.094:ERROR:util.cc(133)] Can't create base directory: C:\Program Files\Google\GoogleUpdater

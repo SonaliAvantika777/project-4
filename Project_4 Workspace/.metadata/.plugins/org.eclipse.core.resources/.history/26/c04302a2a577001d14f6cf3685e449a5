@@ -1,0 +1,88 @@
+package in.co.rays.proj4.util;
+/**
+ * Email Utility provides Email Services
+ * @author SunilOS
+ * @version 1.0
+ * @Copyright (c) SunilOS
+ */
+
+import java.net.PasswordAuthentication;
+import java.util.Properties;
+import java.util.ResourceBundle;
+
+import javax.mail.internet.InternetAddress;
+
+import com.google.protobuf.Message;
+import com.mysql.cj.Session;
+
+public class EmailUtility {
+	//Create Rsourses Bundle to read properties file
+	static ResourceBundle rb = ResourceBundle.getBundle("in.co.sunrays.proj4.bundle.system")
+	//Email Server
+	private static final String SMTP_HOST_NAME = rb.getString("smtp.server");
+	
+	//Email server port
+	private static final String SMTP_PORT = rb.getString("smtp.port");
+	
+    //Session Factory:A session is a connection to email server.	
+	private static final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
+	
+	//Administrator's email id by which all messages are sent
+	private static final String emailFromAddress = rb.getString("email.login");;
+	
+	// Administrator email's password
+	private static final String emailPassword = rb.getString("email.pws");
+	
+	//Email server properties
+	private static Properties props = new Properties();
+	
+	//Static block to initialize static parameters
+	static {
+		props.put("mail.smtp.host",SMTP_HOST_NAME);
+		props.put("mail.smtp.auth","true");
+		props.put("mail.debug","true");
+        props.put("mail.smtp.port",SMTP_PORT);
+		props.put("mail.smtp.socketFactory.port",SMTP_PORT);
+		props.put("mail.smtp.socketFactory.class",SSL_FACTORY);
+		props.put("mail.smtp.socketFactory.fallback","false");
+		
+	}
+	  /**
+     * Sends an Email
+     *
+     * @param emailMessageDTO
+     *            : Email message
+     * @throws ApplicationException
+     */
+	public static void sendMail(EmailMessage emailMessageDTO) {
+		try {
+			//Connection to email server
+			Session session = Session.getDefaultInstance(props,new javax.mail.Authenticator() {
+			   protected PasswordAuthentication getPasswordAuthentication() {
+				  return new PasswordAuthentication(emailFromAddress, emailPassword); 
+			   }
+			});
+			//Make debug mode true to display debug messages at console
+			session.setDebug(true);
+			
+			//Create a message
+			Message msg = MimeMessage(session);
+			InternetAddress addressFrom = new  InternetAddress(emailFromAddress);
+			msg.setFrom(addressFrom);
+			
+			//set TO address
+			String[]emailIds = new String[0];
+			
+			if(emailMessageDTO.getTo()!= null) {
+				emailIds = emailMessageDTO.getTo().split(",");
+			}
+			//Set CC address
+			String[]emailIdsCc = new String[0];
+			if(emailMessageDTO.get)
+
+		}
+	}
+
+
+
+}

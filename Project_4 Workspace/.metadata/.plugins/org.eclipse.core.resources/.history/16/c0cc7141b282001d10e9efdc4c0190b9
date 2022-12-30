@@ -1,0 +1,55 @@
+<%@page import="in.co.rays.proj4.controller.LoginCtl"%>
+<%@page import="in.co.rays.proj4.util.ServletUtility"%>
+<%@page import="in.co.rays.proj4.util.DataUtility"%>
+<%@page import="in.co.rays.proj4.controller.ORSView"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="<%=ORSView.LOGIN_CTL%>" Method="post">
+  <%@iclude file = "Header.jsp" %>
+  <jsp:useBean id="bean" class="in.co.rays.proj4.bean.UserBean" scope="request"></jsp:useBean>
+  
+  <center>
+  <h1>Login</h1>
+  <h2>
+  <font color="red"><%=ServletUtility.getErrorMessage(request)%></font>
+  </h2>
+  
+  <input type="hidden" name="id" value="<%=bean.getId()%>">
+  <input type="hidden" name="createdBy" value="<%=bean.getCreatedBy()%>">
+  <input type="hiiden" name="modifiedBy" value="<%=bean.getModifiedBy()%>">
+  <input type="hidden" name="createdDatetime" value="<%=DataUtility.getTimestamp(bean.getCreatedDatetime())%>">
+  <input type="hidden" name="modifiedDatetime" value="<%=DataUtility.getTimestamp(bean.getModifiedDatetime())%>">
+  
+  <table>
+     <tr>
+         <th>LoginId*</th>
+         <td><input type="text" name="login" size=30 value="<%=DataUtility.getStringData(bean.getLogin()))>"><font color="red"><%= ServletUtility.getErrorMessage("login", request)%></font></td>
+         </tr>
+         
+         <tr>
+           <th>Password*</th>
+           <td><input type="password" name="password" size=30 value="<%=DataUtility.getStringData(bean.getPassword())%>"><font <%=ServletUtility.getErrorMessage("password", request) %>></font>
+           </td>
+           </tr>
+           
+           <tr>
+           <th></th>
+           <td colspan="2"><input type="submit" name="operation" value="<%=LoginCtl.OP_SIGN_IN %>">&nbsp;<input type="submit"  name="operation" value="<%=LoginCtl.OP_SIGN_UP %>">&nbsp;</td>
+            </tr>
+            
+            <tr><th></th>
+            <td><a href="<%=ORSView.FORGET_PASSWORD_CTL %>"><b>Forget my password</b></a>&nbsp; </td>
+  </tr>
+  </table>
+  </center>
+</form>
+
+</body>
+</html>
